@@ -5,7 +5,7 @@
  */
 
 $(document).ready(() => {
-
+  /*
   // DATA
   const data = [
     {
@@ -30,9 +30,54 @@ $(document).ready(() => {
       },
       "created_at": 1461113959088
     }
-  ]
+  ];
+  */
+  // AJAX CALL POSTING
+  //Preventing default submit behaviour for form and submitting data through AJAX.
+  $(".new-tweet-form").submit(function(event){
+    //GET DATA FROM INPUT
+    const tweetData = $(".tweet-input-field").val();
+    if (tweetData.length === 0) {
+      event.preventDefault();
+      alert ("Please write your TWEET BEFORE SUBMITTING IT");
+    } else if(tweetData.length > 140) {
+      event.preventDefault();
+      alert ("YOU EXCEEDED TWEET LETTER COUNT!");
+    } else {
+      event.preventDefault(); //prevent default action 
+      const post_url = $(this).attr("action"); //get form action url. i.e.- the path
+      const request_method = $(this).attr("method"); //get form GET/POST method
+      const form_data = $(this).serialize(); //Encode form elements for submission
+      $.ajax({
+        url : post_url,
+        type: request_method,
+        data : form_data
+      }).done(function(response){ //
+        //$("#server-results").html(response); // <--- The message on the html upon success.
+        console.log('Success', response);
+        $(".tweet-input-field").val('');
+      });
+    }
+    
+  });
 
   // FUNCTIONS
+  const loadTweets = function () {
+    const get_url = `/tweets`;
+    const request_method = 'GET';
+    $.ajax({
+      url: get_url,
+      type: request_method
+    }).then(function(response_data) {
+      console.log(response_data);
+      renderTweets(response_data);
+    })
+    .catch((error) => {
+      console.log('Oooppss', error);
+    })
+  };
+  loadTweets();
+
   const getDate = function (utcSeconds) {
     let dateThen = new Date (utcSeconds);
     let year = dateThen.getFullYear();
@@ -67,9 +112,9 @@ $(document).ready(() => {
   const renderTweets = function (tweetArr) {
     let tweetContainer = $(`.display-tweets`);
     tweetArr.forEach(tweetObj => {
-      const tweet = createTweetElement(tweetObj);
+      const tweet = createTweetElement(tweetObj); //moment.(tweet.created_at).fromNow()
       tweetContainer.append(tweet);
     });
   }
-  renderTweets(data);
+  //renderTweets(data);
 })
