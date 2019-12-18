@@ -1,0 +1,15 @@
+header.page-header {
+  background-color: rosybrown;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  margin-top: 90px;
+}
+
+header.page-header h2 {
+  display: flex;
+  color: white;
+  margin: 0;
+}

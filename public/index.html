@@ -6,24 +6,60 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300i,700i&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/nav.css" type="text/css"/>
+    <link rel="stylesheet" href="./styles/header.css" type="text/css"/>
+    <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css"/>
+    <link rel="stylesheet" href="./styles/tweetArticle.css" type="text/css"/>
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+
+    <!-- JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
+      <p><b>Write</b> a new tweet</p>
+      <p><img src="./images/dropdownArrows.png"></p>
     </nav>
 
+    <header class="page-header">
+      <div>
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div>
+          <h2>Tausif Khan</h2>
+      </div>
+    </header>
+
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <section class="new-tweet">
+        <!-- <h2>Compose Tweet</h2> -->
+        <form class="new-tweet-form" method="POST" action="/tweets">
+          <textarea class="tweet-input-field" name="text" placeholder="What are you humming about?"></textarea>
+          <div class="form-input-section">
+            <input id="tweet-submit-btn" type="submit" value="Tweet">
+            <div class="empty"></div>
+            <span class="counter">140</span>
+          </div>
+        </form>
+      </section>
+      
+      <section class="display-tweets"></section>
+    </main>
+    <script src="./scripts/composer-char-counter.js" ></script>
   </body>
 </html>
