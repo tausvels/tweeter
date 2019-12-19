@@ -104,22 +104,5 @@ $(document).ready(() => {
     $(".error-message").html(message);
     return $(".error-section").slideToggle("slow").delay(1000).slideUp("slow");
   }
-
-  //---- SCROLL UP FUNCTION ----------------//
-  $(window).scroll(() => {
-    let viewingHeight = $(window).scrollTop();
-    if (viewingHeight > 240) {
-        $('#back2Top').fadeIn();
-    } else {
-        $('#back2Top').fadeOut();
-    }
-  });
-  //---- SCROLL-UP: The Click Function
-  $("#back2Top").click(function(event) {
-      event.preventDefault();
-      $("html, body").animate({ scrollTop: 0 }, "slow");
-      return false;
-  });
-
   loadTweets();
 })
