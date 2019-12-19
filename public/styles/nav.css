@@ -1,15 +1,14 @@
 nav {
-  background-color: #4056a1;
+  background-color:  rgb(19, 83, 85);
   color: #FFFF;
   height: 120px;
   z-index: 10000;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   top: 0;
   right: 0; 
   left: 0;
 }
-
 nav span {
   font-family: 'Bungee', cursive;
   position: absolute;
@@ -30,6 +29,26 @@ nav p img {
   top: 1.1em;
   display: flex;
   left: 2.6em;
+}
+@media only screen and (min-width: 300px) {
+  nav span {
+    left: 0;
+  }
+  nav p {
+    font-size: 20px;
+    right: 5px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  nav {
+    position: fixed;
+  }
+  nav span {
+    top: 1.2em; left: 1.5em;
+  }
+  nav p {
+    right: 1.5em;
+  }
 }
 
 /* Wobble Vertical */
