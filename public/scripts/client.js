@@ -32,8 +32,9 @@ $(document).ready(() => {
         data : form_data
       }).done(function(){ //
         //$("#server-results").html(response); // <--- The message on the html upon success.
-        console.log('Success', form_data);
         $(".tweet-input-field").val('');
+        $(".counter").html('140');
+        $(".show-new-tweet-input").slideToggle("slow");
         loadTweets();
       });
     }
