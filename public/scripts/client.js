@@ -7,17 +7,26 @@
  */
 $(document).ready(() => {
 
-  
-  // AJAX CALL POSTING
-  //Preventing default submit behaviour for form and submitting data through AJAX.
+  //------------- NEW TWEET TOGGLE -----------------------------//
+  // $("nav img").on('click', (event) => {
+  //   $(".show-new-tweet-input").toggle(500);
+  // })
+  $("nav img").on("click", (even) => {
+    $(".show-new-tweet-input").slideToggle("slow", (callback) => {
+      $(".tweet-input-field").focus();
+    })
+  })
+  //------------- AJAX CALL POSTING ---------------------------//
   $(".new-tweet-form").submit(function(event){
     //GET DATA FROM INPUT
     const tweetData = $(".tweet-input-field").val();
     event.preventDefault();
     if (tweetData.length === 0) {
-      alert ("Please write your TWEET BEFORE SUBMITTING IT");
+      const errorMessage = "YOU MUST INPUT SOMETHING!!"
+      displayError(errorMessage);
     } else if(tweetData.length > 140) {
-      alert ("YOU EXCEEDED TWEET LETTER COUNT!");
+      const errorMessage = "YOU EXCEEDED CHARACTER LIMIT!!"
+      displayError(errorMessage);
     } else {
       const post_url = $(this).attr("action"); //get form action url. i.e.- the path
       const request_method = $(this).attr("method"); //get form GET/POST method
@@ -59,6 +68,11 @@ $(document).ready(() => {
     let day = dateThen.getDay();
     return (`${month}/${day}/${year}`);
   };
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
   const createTweetElement = function (data) {
     let $tweet = `
       <article class="tweet">
@@ -71,7 +85,7 @@ $(document).ready(() => {
             <p class="last-name">${data.user.handle}</p>
           </div>
         </header>
-        <p class="content">${data.content.text}</p>
+        <p class="content">${escape(data.content.text)}</p>
         <footer class="tweet-footer">
             <p>${moment(data.created_at).fromNow()}</p>
           <span>
@@ -91,5 +105,8 @@ $(document).ready(() => {
       tweetContainer.append(tweet);
     });
   }
-  //renderTweets(data); getDate(data.created_at)
+  const displayError = function (message) {
+    $(".error-message").html(message);
+    return $(".error-section").slideToggle("slow").delay(1000).slideUp("slow");
+  }
 })

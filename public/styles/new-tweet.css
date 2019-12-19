@@ -1,8 +1,33 @@
-.new-tweet {
+.error-section {
+  display: flex;
+  margin: 15px 0 0 10px;
+  background-color: #b50534;
+  border-radius: 20px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  display: none;
+  filter: drop-shadow(3px 3px 3px rgb(92, 0, 0));
+}
+.error-icon {
+  padding: 10px 20px;
+}
+.error-icon img {
+  margin-top: 5px;
+  height: 20px;
+}
+.error-message {
+  display: inline-block;
+  padding: 10px 10px;
+}
+.show-new-tweet-input {
   display: flex;
   flex-direction: column;
   margin: auto;
+  margin-bottom: 10px;
   width: 100%;
+  display: none;
 }
 .new-tweet-form {
   display: flex;

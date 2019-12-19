@@ -47,7 +47,13 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section class="error-section">
+        <div>
+          <span class="error-icon"><img src="./images/warning.png"></img></span>
+          <div class="error-message"></div>
+        </div>
+      </section>
+      <section class="show-new-tweet-input">
         <!-- <h2>Compose Tweet</h2> -->
         <form class="new-tweet-form" method="POST" action="/tweets">
           <textarea class="tweet-input-field" name="text" placeholder="What are you humming about?"></textarea>
