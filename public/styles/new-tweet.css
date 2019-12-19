@@ -44,6 +44,7 @@
   font-weight: 500;
   font-size: 25px;
   resize: none;
+  outline: 0 none;
 }
 .form-input-section {
   display: flex;
