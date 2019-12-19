@@ -1,5 +1,3 @@
-//import { response } from "express";
-
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -8,9 +6,6 @@
 $(document).ready(() => {
 
   //------------- NEW TWEET TOGGLE -----------------------------//
-  // $("nav img").on('click', (event) => {
-  //   $(".show-new-tweet-input").toggle(500);
-  // })
   $("nav img").on("click", (even) => {
     $(".show-new-tweet-input").slideToggle("slow", (callback) => {
       $(".tweet-input-field").focus();
@@ -44,7 +39,7 @@ $(document).ready(() => {
     }
   });
 
-  // FUNCTIONS
+  //----- FUNCTIONS
   const loadTweets = function () {
     const get_url = `/tweets`;
     const request_method = 'GET';
@@ -58,9 +53,7 @@ $(document).ready(() => {
       console.log('Oooppss', error);
     })
   };
-
-  loadTweets();
-
+  /* 
   const getDate = function (utcSeconds) {
     let dateThen = new Date (utcSeconds);
     let year = dateThen.getFullYear();
@@ -68,6 +61,7 @@ $(document).ready(() => {
     let day = dateThen.getDay();
     return (`${month}/${day}/${year}`);
   };
+  */
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
@@ -89,9 +83,9 @@ $(document).ready(() => {
         <footer class="tweet-footer">
             <p>${moment(data.created_at).fromNow()}</p>
           <span>
-            <i class="fa-instagram"></icon>
-            <i class="fa-instagram"></icon>
-            <i class="fa-instagram"></icon>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-twitter"></a>
           </span>
         </footer>
       </article>`
@@ -109,4 +103,22 @@ $(document).ready(() => {
     $(".error-message").html(message);
     return $(".error-section").slideToggle("slow").delay(1000).slideUp("slow");
   }
+
+  //---- SCROLL UP FUNCTION ----------------//
+  $(window).scroll(() => {
+    let viewingHeight = $(window).scrollTop();
+    if (viewingHeight > 240) {
+        $('#back2Top').fadeIn();
+    } else {
+        $('#back2Top').fadeOut();
+    }
+  });
+  //---- SCROLL-UP: The Click Function
+  $("#back2Top").click(function(event) {
+      event.preventDefault();
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+      return false;
+  });
+
+  loadTweets();
 })
