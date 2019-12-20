@@ -41,11 +41,12 @@ article.tweet:hover .intro img {
   margin: auto 0;
   padding: 0 10px 20px 0;
   font-size: 30px;
-  font-weight: 400;
-  transition: font-weight 1s;
+  font-weight: 600;
+  opacity: 0.3;
+  transition: opacity 0.3s ease-in-out;
 }
 article.tweet:hover .intro .first-name {
-  font-weight: bold;
+  opacity: 1;
 }
 .last-name {
   margin-top: 12px;
