@@ -4,11 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(() => {
-
+  const maxCharAllowed = 140;
   //------------- NEW TWEET TOGGLE -----------------------------//
-  $("nav img").on("click", (even) => {
-    $(".error-section").slideUp("slow");
-    $(".show-new-tweet-input").slideToggle("slow", (callback) => {
+  $("nav img").on("click", () => {
+    $(".show-new-tweet-input").slideToggle("slow", () => {
       $(".tweet-input-field").focus();
     })
   })
@@ -20,26 +19,30 @@ $(document).ready(() => {
     if (tweetData.length === 0) {
       const errorMessage = "YOU MUST INPUT SOMETHING!!"
       displayError(errorMessage);
-    } else if(tweetData.length > 140) {
+    } else if(tweetData.length > maxCharAllowed) {
       const errorMessage = "YOU EXCEEDED CHARACTER LIMIT!!"
       displayError(errorMessage);
     } else {
       const post_url = $(this).attr("action"); //get form action url. i.e.- the path
       const request_method = $(this).attr("method"); //get form GET/POST method
-      const form_data = $(this).serialize(); //Encode form elements for submission
+      const form_data = $(this).serialize(); //Encode form elements to string for submission
       $.ajax({
         url : post_url,
         type: request_method,
         data : form_data
-      }).done(function(){ //
-        //$("#server-results").html(response); // <--- The message on the html upon success.
+      }).done(function(){
         $(".tweet-input-field").val('');
-        $(".counter").html('140');
+        $(".counter").html(`${maxCharAllowed}`);
         $(".show-new-tweet-input").slideToggle("slow");
         loadTweets();
       });
     }
   });
+
+  //----- EVENT HANDLER ON TEXT INPUT FIELD TO HIDE ERROR MESSAGE IF DISPLAYED ----//
+  $(".tweet-input-field").on("click", () => {
+    return $(".error-section").slideUp("slow");
+  })
 
   //----- FUNCTIONS
   const loadTweets = function () {
@@ -55,15 +58,6 @@ $(document).ready(() => {
       console.log('Oooppss', error);
     })
   };
-  /* 
-  const getDate = function (utcSeconds) {
-    let dateThen = new Date (utcSeconds);
-    let year = dateThen.getFullYear();
-    let month = dateThen.getMonth();
-    let day = dateThen.getDay();
-    return (`${month}/${day}/${year}`);
-  };
-  */
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
@@ -98,7 +92,7 @@ $(document).ready(() => {
     let tweetContainer = $(`.display-tweets`);
     tweetContainer.empty();
     tweetArr.forEach(tweetObj => {
-      const tweet = createTweetElement(tweetObj); //moment.(tweet.created_at).fromNow()
+      const tweet = createTweetElement(tweetObj);
       tweetContainer.append(tweet);
     });
   }
@@ -106,8 +100,5 @@ $(document).ready(() => {
     $(".error-message").html(message);
     return $(".error-section").slideDown("slow");
   }
-  $(".tweet-input-field").on("click", () => {
-    return $(".error-section").slideUp("slow");
-  })
   loadTweets();
 })

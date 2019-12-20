@@ -31,12 +31,10 @@ article.tweet .intro {
   vertical-align: middle;
   margin-left: 20px;
   margin-right: 10px;
-  /* filter: drop-shadow(16px 16px 20px red) invert(75%); */
   transition: filter 0.3s ease-in-out;
 }
 article.tweet:hover .intro img {
   filter: drop-shadow(3px 3px 3px red);
-  /* box-shadow: 5px 5px grey; */
 }
 .intro .first-name {
   display: inline-block;

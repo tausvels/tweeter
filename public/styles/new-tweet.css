@@ -1,5 +1,4 @@
 .error-section {
-  /* display: flex; */
   margin: 15px 0 0 10px;
   background-color: #b50534;
   border-radius: 20px;
@@ -79,7 +78,6 @@
   }
 }
 .hvr-pulse {
-  /* display: inline-block; */
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
