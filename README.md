@@ -21,6 +21,10 @@ The application is responsive and hence works fine on various devices.
 - nodemon    : "^1.9.2"
 
 ## Screenshots
+!["LandingPage"](./screenshots/InitialPg.png)
+!["New Tweet"](./screenshots/NewTweet.png)
+!["Writing Tweet"](./screenshots/WritingTweet.png)
+!["Error"](./screenshots/Error.png)
 
 ## Instructions
 
