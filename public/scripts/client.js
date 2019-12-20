@@ -103,7 +103,10 @@ $(document).ready(() => {
   }
   const displayError = function (message) {
     $(".error-message").html(message);
-    return $(".error-section").slideToggle("slow").delay(1000).slideUp("slow");
+    return $(".error-section").slideDown("slow");
   }
+  $(".tweet-input-field").on("click", () => {
+    return $(".error-section").slideUp("slow");
+  })
   loadTweets();
 })

@@ -1,5 +1,5 @@
 .error-section {
-  display: flex;
+  /* display: flex; */
   margin: 15px 0 0 10px;
   background-color: #b50534;
   border-radius: 20px;
@@ -64,4 +64,31 @@
 .counter {
   font-family: 'Bungee', cursive;
   color: grey;
+}
+
+/* ERROR ANIMATION */
+@keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.04);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.97);
+  }
+}
+.hvr-pulse {
+  /* display: inline-block; */
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-animation-name: hvr-pulse;
+  animation-name: hvr-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1.5s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
