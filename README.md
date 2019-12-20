@@ -21,10 +21,10 @@ The application is responsive and hence works fine on various devices.
 - nodemon    : "^1.9.2"
 
 ## Screenshots
-!["LandingPage"](./screenshots/InitialPg.png)
-!["New Tweet"](./screenshots/NewTweet.png)
-!["Writing Tweet"](./screenshots/WritingTweet.png)
-!["Error"](./screenshots/Error.png)
+!["LandingPage"](https://github.com/tausvels/tweeter/blob/master/screenshots/1.%20InitialPg.png)
+!["New Tweet"](https://github.com/tausvels/tweeter/blob/master/screenshots/1_1.%20NewTweet.png)
+!["Writing Tweet"](https://github.com/tausvels/tweeter/blob/master/screenshots/2.%20WritingTweet.png)
+!["Error"](https://github.com/tausvels/tweeter/blob/master/screenshots/3.%20Error.png)
 
 ## Instructions
 
