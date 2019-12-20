@@ -7,6 +7,7 @@ $(document).ready(() => {
   const maxCharAllowed = 140;
   //------------- NEW TWEET TOGGLE -----------------------------//
   $("nav img").on("click", () => {
+    $(".error-section").slideUp("slow");
     $(".show-new-tweet-input").slideToggle("slow", () => {
       $(".tweet-input-field").focus();
     })
