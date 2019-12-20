@@ -31,7 +31,7 @@ nav p img {
   left: 2.6em;
   cursor: pointer;
 }
-@media only screen and (min-width: 300px ) {
+@media only screen and (max-width: 300px ) {
   /* nav span {
     font-size: 24px;
   } */

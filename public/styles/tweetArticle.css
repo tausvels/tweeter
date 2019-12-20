@@ -66,6 +66,8 @@ p.content {
   font-size: 24px;
   font-weight: 500;
   color: black;
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
 .tweet-footer {
   display: flex;
