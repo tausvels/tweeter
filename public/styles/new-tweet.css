@@ -60,6 +60,7 @@
   background-color: navy;
   color: white;
   font-family: 'Bungee', cursive;
+  outline: 0 none;
 }
 .counter {
   font-family: 'Bungee', cursive;

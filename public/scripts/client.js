@@ -7,6 +7,7 @@ $(document).ready(() => {
 
   //------------- NEW TWEET TOGGLE -----------------------------//
   $("nav img").on("click", (even) => {
+    $(".error-section").slideUp("slow");
     $(".show-new-tweet-input").slideToggle("slow", (callback) => {
       $(".tweet-input-field").focus();
     })
